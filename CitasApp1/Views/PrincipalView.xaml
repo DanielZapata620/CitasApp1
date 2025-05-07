@@ -19,6 +19,7 @@
             <MenuItem Header="Inicio" FontSize="18">
                 <MenuItem Header="Agregar usuario" Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Agregar}"></MenuItem>
                 <MenuItem Header="Agregar cita"></MenuItem>
+                <MenuItem Header="Ver Usuario"></MenuItem>
             </MenuItem>
         </Menu>
 
