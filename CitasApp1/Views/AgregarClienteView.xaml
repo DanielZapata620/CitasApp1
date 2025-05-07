@@ -42,7 +42,7 @@
             </WrapPanel>
             <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="400" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
-        <Border VerticalAlignment="Bottom" Background="#95D5B2" Panel.ZIndex="-1" Height="30"></Border>
+        <!--<Border VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="#95D5B2" Panel.ZIndex="-1" Height="30" ></Border>-->
     </Grid>
 
 </UserControl>
