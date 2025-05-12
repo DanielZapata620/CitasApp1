@@ -29,8 +29,15 @@
                             </Setter.Value>
                         </Setter>
                     </DataTrigger>
+                    <DataTrigger Binding="{Binding Vista}" Value="{x:Static viewmodels:vistas.VerUsuarios}">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <views:VerUsuarioView></views:VerUsuarioView>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
 
-                    
+
 
                 </Style.Triggers>
             </Style>

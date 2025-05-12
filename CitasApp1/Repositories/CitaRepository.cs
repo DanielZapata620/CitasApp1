@@ -20,11 +20,11 @@ namespace CitasApp1.Repositories
             }
             if (string.IsNullOrWhiteSpace(u.Telefono))
             {
-                ListaErrores.Add("Escriba el nombre del usuario");
+                ListaErrores.Add("Escriba el telefono del usuario");
             }
             if (string.IsNullOrWhiteSpace(u.Correo))
             {
-                ListaErrores.Add("Escriba el nombre del usuario");
+                ListaErrores.Add("Escriba el correo del usuario");
             }
 
 
@@ -63,11 +63,7 @@ namespace CitasApp1.Repositories
 
 
 
-        public Usuarios GetSerieById(int id)
-        {
-            return context.Usuarios.Find(id);
-
-        }
+        
 
     }
 }

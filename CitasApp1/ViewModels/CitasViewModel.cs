@@ -9,10 +9,11 @@ using System.Windows.Input;
 using CitasApp1.Models;
 using GalaSoft.MvvmLight.Command;
 using CitasApp1.Repositories;
+using System.Collections.ObjectModel;
 
 namespace CitasApp1.ViewModels
 {
-    public enum vistas { Principal, Agregar, Eliminar, Editar }
+    public enum vistas { Principal, VerUsuarios, Agregar, Eliminar, Editar }
     public class CitasViewModel:INotifyPropertyChanged
     {
         CitaRepository repos = new();
@@ -38,12 +39,16 @@ namespace CitasApp1.ViewModels
 
 
         public Usuarios Usuario { get; set; } = new();
+
+        public ObservableCollection<Usuarios> Usuarios { get; set; } = new();
         public CitasViewModel()
         {
             EliminarUsuarioCommand=new RelayCommand(EliminarUsuario);
             EditarUsuarioCommand=new RelayCommand(EditarUsuario);
             AgregarUsuarioCommand=new RelayCommand(AgregarUsuario);
             CambiarVistaCommand=new RelayCommand<vistas> (CambiarVista);
+
+            
         }
 
         private void EditarUsuario()
@@ -119,6 +124,15 @@ namespace CitasApp1.ViewModels
                     };
                     Usuario = c;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+                }
+            }
+
+            if (vistas==vistas.VerUsuarios)
+            {
+                Usuarios.Clear();
+                foreach (var item in repos.GetAll())
+                {
+                    Usuarios.Add(item);
                 }
             }
 

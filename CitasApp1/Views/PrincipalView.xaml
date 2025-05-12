@@ -19,7 +19,7 @@
             <MenuItem Header="Inicio" FontSize="18">
                 <MenuItem Header="Agregar usuario" Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Agregar}"></MenuItem>
                 <MenuItem Header="Agregar cita"></MenuItem>
-                <MenuItem Header="Ver Usuario"></MenuItem>
+                <MenuItem Header="Ver Usuario"  Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.VerUsuarios}"></MenuItem>
             </MenuItem>
         </Menu>
 
@@ -38,7 +38,7 @@
             </Grid.RowDefinitions>
 
 
-            <DataGrid Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" ContextMenu="{StaticResource Contextual}" ></DataGrid>
+            <DataGrid  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" ContextMenu="{StaticResource Contextual}" ></DataGrid>
             
             <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" Margin="10" >
                 <Button  Content="Anterior" Width="60" Padding="3" Margin="3,0"></Button>

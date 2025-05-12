@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace CitasApp1.Models;
 
 public partial class Usuarios
+
 {
     public int Id { get; set; }
 
