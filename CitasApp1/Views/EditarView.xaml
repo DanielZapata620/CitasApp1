@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="CitasApp1.Views.AgregarClienteView"
+﻿<UserControl x:Class="CitasApp1.Views.EditarView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CitasApp1.Views" xmlns:viewmodels="clr-namespace:CitasApp1.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CitasViewModel}"
+             xmlns:viewmodels="clr-namespace:CitasApp1.ViewModels"
+             xmlns:local="clr-namespace:CitasApp1.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -19,19 +20,19 @@
 
     <Grid>
         <StackPanel Width="400" Background="White">
-            
-            <TextBlock Margin="10" FontSize="30" Text="Agregar cliente" HorizontalAlignment="Center" FontWeight="Bold">
-                <!--<TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Style.Triggers>
-                            <DataTrigger>
-                                <Setter Property="Text" Value="Editar Cliente"></Setter>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>-->
+
+            <TextBlock Margin="10" FontSize="30" Text="Editar cliente" HorizontalAlignment="Center" FontWeight="Bold">
+             <!--<TextBlock.Style>
+                 <Style TargetType="TextBlock">
+                     <Style.Triggers>
+                         <DataTrigger>
+                             <Setter Property="Text" Value="Editar Cliente"></Setter>
+                         </DataTrigger>
+                     </Style.Triggers>
+                 </Style>
+             </TextBlock.Style>-->
             </TextBlock>
-            
+
             <WrapPanel Margin="10" Orientation="Horizontal">
                 <TextBlock Text="Nombre:" Width="120" Margin="0,0,10,0"></TextBlock>
                 <TextBox Text="{Binding Usuario.Nombre}" MinWidth="250" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
@@ -42,14 +43,14 @@
             </WrapPanel>
             <WrapPanel Margin="10">
                 <TextBlock Margin="0,0,10,0">
-                    <Run Text="Correo"></Run>
-                    <LineBreak/>
-                    <Run Text="electrónico:"></Run>
+                 <Run Text="Correo"></Run>
+                 <LineBreak/>
+                 <Run Text="electrónico:"></Run>
                 </TextBlock>
                 <TextBox Text="{Binding Usuario.Correo}" HorizontalAlignment="Left" Width="245"></TextBox>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10,10,0">
-                <Button Command="{Binding AgregarUsuarioCommand}"  FontSize="24" Width="110" Margin="10" FontWeight="DemiBold">Agregar</Button>
+                <Button Command="{Binding EditarUsuarioCommand}"  FontSize="24" Width="110" Margin="10" FontWeight="DemiBold">Editar</Button>
                 <Button Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.VerUsuarios}" FontSize="24" Width="110" Margin="10" FontWeight="DemiBold">Cancelar</Button>
             </WrapPanel>
             <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="400" HorizontalAlignment="Center"></TextBlock>

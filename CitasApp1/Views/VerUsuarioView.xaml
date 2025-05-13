@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CitasApp1.Views" xmlns:viewmodels="clr-namespace:CitasApp1.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CitasViewModel}"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Name="Ventana"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <ContextMenu x:Key="Contextual">
-            <MenuItem Header="Agregar"></MenuItem>
-            <MenuItem Header="Eliminar"></MenuItem>
-            <MenuItem Header="Editar"></MenuItem>
+        <ContextMenu x:Key="Contextual"  >
+            <MenuItem Header="Agregar"  Command="{Binding Source={x:Reference Ventana},Path=DataContext.CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Agregar}" ></MenuItem>
+            <MenuItem Header="Eliminar" Command="{Binding Source={x:Reference Ventana},Path=DataContext.CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Eliminar}"></MenuItem>
+            <MenuItem Header="Editar" Command="{Binding Source={x:Reference Ventana},Path=DataContext.CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Editar}"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
     <DockPanel>
@@ -44,20 +44,25 @@
 
             <ScrollViewer Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="Transparent">
 
-                <ItemsControl Grid.Row="1" ItemsSource="{Binding Usuarios}">
-                    <ItemsControl.ItemsPanel>
+                <ListBox Grid.Row="1" ContextMenu="{StaticResource Contextual}"
+         ItemsSource="{Binding Usuarios}"
+         SelectedItem="{Binding Usuario}"
+         HorizontalContentAlignment="Stretch"
+         VerticalContentAlignment="Stretch"
+         BorderThickness="0"
+         Background="Transparent">
+                    <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-
                             <UniformGrid Columns="3" Rows="3" Background="#FF5E9B66"/>
-
                         </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <local:Usuario MinWidth="200" Margin="5" Padding="5" ContextMenu="{StaticResource Contextual}"></local:Usuario>
+                            <local:Usuario MinWidth="200" MaxWidth="300" Margin="5" Padding="5"/>
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
             </ScrollViewer>
 
             <Border Grid.Row="3" Grid.ColumnSpan="5" Margin="0,3,0,0" Background="#A5FFD0"></Border>

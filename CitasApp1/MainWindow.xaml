@@ -37,6 +37,22 @@
                         </Setter>
                     </DataTrigger>
 
+                    <DataTrigger Binding="{Binding Vista}" Value="{x:Static viewmodels:vistas.Eliminar}">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <views:EliminarCliente></views:EliminarCliente>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Vista}" Value="{x:Static viewmodels:vistas.Editar}">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <views:EditarView></views:EditarView>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+
+
 
 
                 </Style.Triggers>

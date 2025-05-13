@@ -63,7 +63,7 @@ namespace CitasApp1.ViewModels
                     x.Correo=Usuario.Correo;
                     x.Telefono=Usuario.Telefono;
                     repos.Editar(x);
-                    Vista=vistas.Principal;
+                    CambiarVista(vistas.VerUsuarios);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
 
                 }
@@ -77,7 +77,7 @@ namespace CitasApp1.ViewModels
             if (Usuario!=null)
             {
                 repos.Eliminar(Usuario);
-                Vista=vistas.Principal;
+                CambiarVista(vistas.VerUsuarios);
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
             }
         }
@@ -88,7 +88,7 @@ namespace CitasApp1.ViewModels
             if (!repos.Validar(Usuario, out error))
             {
                 repos.Agregar(Usuario);
-                Vista=vistas.Principal;
+                CambiarVista(vistas.VerUsuarios);
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
 
             }
