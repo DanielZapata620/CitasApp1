@@ -13,15 +13,34 @@
             <MenuItem Header="Editar"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    
-    <Grid>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Inicio" FontSize="18">
-                <MenuItem Header="Agregar usuario" Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Agregar}"></MenuItem>
-                <MenuItem Header="Agregar cita"></MenuItem>
-                <MenuItem Header="Ver Usuario"  Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.VerUsuarios}"></MenuItem>
-            </MenuItem>
-        </Menu>
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Menu>
+                <MenuItem Header="Inicio" FontSize="18">
+                    <MenuItem Header="Agregar usuario" Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.Agregar}"></MenuItem>
+                    <MenuItem Header="Agregar cita"></MenuItem>
+                    <MenuItem Header="Ver Usuario"  Command="{Binding CambiarVistaCommand}" CommandParameter="{x:Static viewmodels:vistas.VerUsuarios}"></MenuItem>
+                </MenuItem>
+            </Menu>
+            <TextBlock FontSize="30" FontWeight="Bold" HorizontalAlignment="Center">Citas agendadas</TextBlock>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,6,40,5" >
+                <Button  Width="60" MaxHeight="32" Padding="3" Margin="3,0">
+                    <Image Source="/Resources/triangle.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                                <RotateTransform Angle="-90"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button Width="60" MaxHeight="32" Padding="3" Margin="3,0">
+                    <Image Source="/Resources/triangle.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <RotateTransform Angle="90"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+            </StackPanel>
+        </Grid>
 
         <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -32,22 +51,19 @@
                 <ColumnDefinition Width="0.2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="0.1*"></RowDefinition>
             </Grid.RowDefinitions>
 
 
-            <DataGrid  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" ContextMenu="{StaticResource Contextual}" ></DataGrid>
-            
-            <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" Margin="10" >
-                <Button  Content="Anterior" Width="60" Padding="3" Margin="3,0"></Button>
-                <Button Content="Siguiente" Width="60" Padding="3" Margin="3,0"></Button>
-            </StackPanel>
-            
-            <Border Grid.Row="2" Grid.ColumnSpan="5"  Background="#A5FFD0" Height="40"></Border>
+            <DataGrid  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Margin="0,0,0,8" ContextMenu="{StaticResource Contextual}" ></DataGrid>
+
+
+
+            <Border Grid.Row="2" Grid.ColumnSpan="5" VerticalAlignment="Bottom" Background="#A5FFD0" MinHeight="60" MaxHeight="60"></Border>
         </Grid>
-    </Grid>
+    </DockPanel>
 
 
 </UserControl>

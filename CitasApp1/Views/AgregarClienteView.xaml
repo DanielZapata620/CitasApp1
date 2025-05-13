@@ -19,14 +19,26 @@
 
     <Grid>
         <StackPanel Width="400" Background="White">
-            <TextBlock Margin="10" FontSize="30" Text="Agregar cliente" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            
+            <TextBlock Margin="10" FontSize="30" Text="Agregar cliente" HorizontalAlignment="Center" FontWeight="Bold">
+                <!--<TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger>
+                                <Setter Property="Text" Value="Editar Cliente"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>-->
+            </TextBlock>
+            
             <WrapPanel Margin="10" Orientation="Horizontal">
-                <TextBlock Text="Nombre:" Width="120"></TextBlock>
-                <TextBox Text="{Binding Usuario.Nombre}" Width="260" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+                <TextBlock Text="Nombre:" Width="120" Margin="0,0,10,0"></TextBlock>
+                <TextBox Text="{Binding Usuario.Nombre}" MinWidth="250" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
             </WrapPanel>
             <WrapPanel Margin="10">
-                <TextBlock Text="Telefono:" Width="120"></TextBlock>
-                <TextBox Text="{Binding Usuario.Telefono}" Width="260"></TextBox>
+                <TextBlock Text="Telefono:" Width="120" Margin="0,0,10,0"></TextBlock>
+                <TextBox Text="{Binding Usuario.Telefono}" MinWidth="250" HorizontalAlignment="Stretch"></TextBox>
             </WrapPanel>
             <WrapPanel Margin="10">
                 <TextBlock Margin="0,0,10,0">
